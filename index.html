@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DPJCC Member Reviews</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .dpjcc-review-carousel {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 56px 42px 38px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(0, 91, 170, 0.12);
+      border-radius: 28px;
+      box-shadow: 0 20px 55px rgba(0, 45, 90, 0.13);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .dpjcc-review-carousel::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 190px;
+      height: 190px;
+      background: rgba(0, 91, 170, 0.08);
+      border-radius: 50%;
+    }
+
+    .dpjcc-review-carousel::after {
+      content: "";
+      position: absolute;
+      bottom: -90px;
+      left: -90px;
+      width: 210px;
+      height: 210px;
+      background: rgba(0, 91, 170, 0.06);
+      border-radius: 50%;
+    }
+
+    .dpjcc-quote-mark {
+      position: relative;
+      z-index: 2;
+      font-family: Georgia, serif;
+      font-size: 5.5rem;
+      line-height: 0.7;
+      color: #005baa;
+      opacity: 0.22;
+      margin-bottom: 6px;
+    }
+
+    .dpjcc-review-track {
+      position: relative;
+      z-index: 2;
+      min-height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dpjcc-review-card {
+      display: none;
+      opacity: 0;
+      max-width: 740px;
+      margin: 0 auto;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .dpjcc-review-card.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: dpjccFadeUp 0.45s ease;
+    }
+
+    .dpjcc-review-text {
+      font-size: clamp(1.65rem, 2.6vw, 2.25rem);
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: #152233;
+      margin: 0 auto 28px;
+    }
+
+    .dpjcc-review-name {
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #005baa;
+      margin: 0;
+    }
+
+    .dpjcc-review-name::before {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 3px;
+      background: #005baa;
+      border-radius: 99px;
+      margin: 0 auto 14px;
+    }
+
+    .dpjcc-review-controls {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .dpjcc-review-arrow {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(0, 91, 170, 0.18);
+      border-radius: 50%;
+      background: #ffffff;
+      color: #005baa;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 45, 90, 0.09);
+      transition: all 0.22s ease;
+    }
+
+    .dpjcc-review-arrow:hover {
+      background: #005baa;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .dpjcc-review-dots {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dpjcc-dot {
+      width: 10px;
+      height: 10px;
+      background: #b8c9dc;
+      border-radius: 999px;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .dpjcc-dot.active {
+      width: 28px;
+      background: #005baa;
+    }
+
+    @keyframes dpjccFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .dpjcc-review-carousel {
+        padding: 44px 24px 32px;
+        border-radius: 22px;
+      }
+
+      .dpjcc-quote-mark {
+        font-size: 4.5rem;
+      }
+
+      .dpjcc-review-track {
+        min-height: 220px;
+      }
+
+      .dpjcc-review-text {
+        font-size: 1.45rem;
+      }
+
+      .dpjcc-review-arrow {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dpjcc-review-carousel">
+    <div class="dpjcc-quote-mark">“</div>
+
+    <div class="dpjcc-review-track">
+      <div class="dpjcc-review-card active">
+        <p class="dpjcc-review-text">
+          “Amazing!! Such a special place where inclusivity is part of the culture. Thank you DPJCC.”
+        </p>
+        <p class="dpjcc-review-name">Ysela Heim</p>
+      </div>
+
+      <div class="dpjcc-review-card">
+        <p class="dpjcc-review-text">
+          “Everyone is amicable and helpful. Exercise instructors are amazing.”
+        </p>
+        <p class="dpjcc-review-name">Carol Springer</p>
+      </div>
+
+      <div class="dpjcc-review-card">
+        <p class="dpjcc-review-text">
+          “Love this place! Great people, safe environment, long-lasting friendships!”
+        </p>
+        <p class="dpjcc-review-name">Yulia Shemigon</p>
+      </div>
+    </div>
+
+    <div class="dpjcc-review-controls">
+      <button class="dpjcc-review-arrow" onclick="changeDPJCCReview(-1)" aria-label="Previous review">‹</button>
+
+      <div class="dpjcc-review-dots">
+        <span class="dpjcc-dot active" onclick="showDPJCCReview(0)"></span>
+        <span class="dpjcc-dot" onclick="showDPJCCReview(1)"></span>
+        <span class="dpjcc-dot" onclick="showDPJCCReview(2)"></span>
+      </div>
+
+      <button class="dpjcc-review-arrow" onclick="changeDPJCCReview(1)" aria-label="Next review">›</button>
+    </div>
+  </div>
+
+  <script>
+    let currentDPJCCReview = 0;
+
+    function showDPJCCReview(index) {
+      const reviews = document.querySelectorAll(".dpjcc-review-card");
+      const dots = document.querySelectorAll(".dpjcc-dot");
+
+      if (!reviews.length || !dots.length) return;
+
+      reviews[currentDPJCCReview].classList.remove("active");
+      dots[currentDPJCCReview].classList.remove("active");
+
+      currentDPJCCReview = (index + reviews.length) % reviews.length;
+
+      reviews[currentDPJCCReview].classList.add("active");
+      dots[currentDPJCCReview].classList.add("active");
+    }
+
+    function changeDPJCCReview(direction) {
+      showDPJCCReview(currentDPJCCReview + direction);
+    }
+
+    setInterval(() => {
+      changeDPJCCReview(1);
+    }, 7500);
+  </script>
+</body>
+</html>
